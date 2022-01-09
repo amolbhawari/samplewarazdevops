@@ -6,8 +6,8 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- bash: docker-compose up -d
+#steps:
+#- bash: docker-compose up -d
 
 #- task: DockerCompose@0
  # inputs:
