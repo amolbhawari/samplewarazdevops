@@ -10,11 +10,10 @@ pool:
   name: Default
   vmImage: Default
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Free Trial(941814d0-69c2-4061-bb77-a5872f73b7f6)'
+    azureContainerRegistry: '{"loginServer":"amoltestcontainers.azurecr.io", "id" : "/subscriptions/941814d0-69c2-4061-bb77-a5872f73b7f6/resourceGroups/docker01_group/providers/Microsoft.ContainerRegistry/registries/amoltestcontainers"}'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run a Docker Compose command'
